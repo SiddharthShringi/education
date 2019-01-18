@@ -19,5 +19,6 @@ from mapdata import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/literacy_rate', views.literacy_rate_data)
+    path('api/literacy_rate', views.literacy_rate_data),
+    path('api/electricity', views.school_electricity_data),
 ]

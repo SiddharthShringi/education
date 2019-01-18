@@ -14,3 +14,11 @@ def literacy_rate_data(request):
     response = requests.get(data_url)
     if request.method == 'GET':
         return Response(data = response.json())
+
+
+@api_view(['GET',])
+def school_electricity_data(request):
+    data_url = "https://data.gov.in/node/4251821/datastore/export/json"
+    response = requests.get(data_url)
+    if request.method == 'GET':
+        return Response(data = response.json())
