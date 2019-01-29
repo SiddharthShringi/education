@@ -1,28 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
+import { fetchLiteracy } from './store/actions/fetchLiteracy'
+import { connect } from 'react-redux'
+
+import LiteracyBarChart from './components/LiteractBarChart'
+
+
 import './App.css';
 
 class App extends Component {
+
+  componentWillMount() {
+    fetch("http://127.0.0.1:8000/api/literacy_rate").then(data => data.json()).then(data => {
+    console.log(data)  
+    this.props.fetchLiteracy(data)})
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    return(
+      <Fragment>
+        <h1>Social Cops</h1>
+        <LiteracyBarChart literacy={this.props.literacyRate}/>
+      </Fragment>
+    )
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  fetchLiteracy
+}
+
+const mapStateToProps = (state) => {
+  return {
+    literacyRate: state.literacy
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
