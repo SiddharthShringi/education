@@ -45,3 +45,51 @@ export function getStackedData(data, years, background, gender='total') {
     }
 }
 
+
+// function to get data in datamaps library format
+
+const IsoCode = [
+    "AP",
+    "AR",
+    "AS",
+    "BR",
+    "CT",
+    "GA",
+    "GJ",
+    "HR",
+    "HP",
+    "JK",
+    "JH",
+    "KA",
+    "KL",
+    "MP",
+    "MH",
+    "MN",
+    "ML",
+    "MZ",
+    "NL",
+    "OR",
+    "PB",
+    "RJ",
+    "SK",
+    "TN",
+    "TR",
+    "UP",
+    "UT",
+    "WB",
+    "AN",
+    "CH",
+    "DN",
+    "DD",
+    "DL",
+    "LD"
+]
+
+function getDatamap(data, year, code, area='all', infoValue='total') {
+    return data.filter(obj => (obj.year === year && obj.area == area && obj.region != 'All India')).map((obj, index) => {
+        let arr = [];
+        arr.push(code[index]);
+        arr.push(obj[infoValue])
+        return arr
+    })
+}
