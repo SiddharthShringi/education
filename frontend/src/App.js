@@ -3,6 +3,7 @@ import { fetchLiteracy } from './store/actions/fetchLiteracy'
 import { connect } from 'react-redux'
 
 import LiteracyBarChart from './components/LiteractBarChart'
+import LiteracyHeatMap from './components/LiteracyHeatMap'
 
 
 import './App.css';
@@ -19,7 +20,8 @@ class App extends Component {
     return(
       <Fragment>
         <h1>Social Cops</h1>
-        <LiteracyBarChart literacy={this.props.literacyRate}/>
+        {/* <LiteracyBarChart literacy={this.props.literacyRate}/> */}
+        <LiteracyHeatMap literacy={this.props.literacyRate} />
       </Fragment>
     )
   }

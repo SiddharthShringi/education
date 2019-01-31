@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.3",
+    "d3": "^5.8.0",
+    "datamaps": "^0.5.9",
     "react": "^16.7.0",
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.7.0",
