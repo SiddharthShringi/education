@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { fetchLiteracy } from './store/actions/fetchLiteracy'
 import { connect } from 'react-redux'
 
-import LiteracyBarChart from './components/LiteractBarChart'
-import LiteracyHeatMap from './components/LiteracyHeatMap'
+// import LiteracyBarChart from './components/LiteractBarChart'
+import LiteracyGeoMap from './components/LiteracyGeoMap'
 
 
 import './App.css';
@@ -21,7 +21,7 @@ class App extends Component {
       <Fragment>
         <h1>Social Cops</h1>
         {/* <LiteracyBarChart literacy={this.props.literacyRate}/> */}
-        <LiteracyHeatMap literacy={this.props.literacyRate} />
+        <LiteracyGeoMap literacy={this.props.literacyRate} />
       </Fragment>
     )
   }

@@ -51,14 +51,14 @@ export default class LiteracyHeatMap extends Component {
 
   mapLiteracy = () => {
     let dataset = {};
-    console.log(this.props, "check3");
+    // console.log(this.props, "check3");
 
     let literacyData = getDatamap(
       this.props.literacy,
       1991,
       this.state.isoCode
     );
-    console.log(literacyData, "check2");
+    // console.log(literacyData, "check2");
 
     let literacyRate = literacyData.map(obj => obj[1]);
 
@@ -115,13 +115,13 @@ export default class LiteracyHeatMap extends Component {
       },
       data: dataset,
       setProjection: function(element) {
-        var projection = d3
-          .geoMercator()
+        var projection = d3.geoMercator()
           .center([27.8913, 78.0792]) // always in [East Latitude, North Longitude]
           .scale(200)
           .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
 
         var path = d3.geoPath().projection(projection);
+        console.log(path)
         return { path: path, projection: projection };
       }
     });
@@ -138,8 +138,8 @@ export default class LiteracyHeatMap extends Component {
       <div
         id="cloropleth_map"
         style={{
-          height: "100%",
-          width: "100%"
+          height: "500px",
+          width: "500px"
         }}
       />
     );
