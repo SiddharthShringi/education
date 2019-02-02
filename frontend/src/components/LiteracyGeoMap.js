@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Datamap from "datamaps/dist/datamaps.world.min.js";
 import * as d3 from "d3";
 
-import IndiaJson from "./India.topo.json";
+import IndiaJson from "./India.topo3.json";
 import { getDatamap } from "../utils";
 
 
@@ -88,7 +88,7 @@ export default class LiteracyGeoMap extends Component {
         borderColor: "#444",
         highlightBorderWidth: 1,
         borderWidth: 0.5,
-        // dataUrl: 'https://rawgit.com/Anujarya300/bubble_maps/master/data/geography-data/india.topo.json',
+        // dataUrl: 'https://gist.githubusercontent.com/mukhtyar/9958903/raw/071bc8a6eb002778bacebeb221b578591d11b44a/india_state_2014_simplified.topojson',
         dataJson: IndiaJson,
         popupTemplate: function(geo, data) {
           // don't show tooltip if country don't present in dataset
@@ -119,7 +119,7 @@ export default class LiteracyGeoMap extends Component {
       setProjection: function(element) {
         var projection = d3.geoMercator()
           .center([78.9629, 23.5937]) // always in [East Latitude, North Longitude]
-          .scale(1000)
+          .scale(800)
           .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
 
         var path = d3.geoPath().projection(projection);
@@ -140,7 +140,7 @@ export default class LiteracyGeoMap extends Component {
 
   render() {
     return (
-      <div id="datamap-container" style={{ height: 1000, width: 700}}></div>
+      <div id="datamap-container" style={{ height: 700, width: 700}}></div>
     );
   }
 }
