@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Datamap from "datamaps/dist/datamaps.world.min.js";
 import * as d3 from "d3";
 
-import IndiaJson from "./India.topo3.json";
+import IndiaJson from "../IndianStatesData/India.topo3.json";
 import { getDatamap } from "../utils";
 
 
@@ -69,7 +69,7 @@ export default class LiteracyGeoMap extends Component {
 
     let paletteScale = d3.scaleLinear()
       .domain([minValue, maxValue])
-      .range(["#EFEFFF", "#052d47"]);
+      .range(["#EFEFFF", "#086fd6"]);
 
     const dataset = literacyData.reduce((object, item) => {
       let iso = item[0],
@@ -103,6 +103,7 @@ export default class LiteracyGeoMap extends Component {
             "</strong>",
             "<br>Literacy Rate: <strong>",
             data.literacy,
+            "%",
             "</strong>",
             "</div>"
           ].join("");
@@ -119,7 +120,7 @@ export default class LiteracyGeoMap extends Component {
       setProjection: function(element) {
         var projection = d3.geoMercator()
           .center([78.9629, 23.5937]) // always in [East Latitude, North Longitude]
-          .scale(800)
+          .scale(1100)
           .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
 
         var path = d3.geoPath().projection(projection);
